@@ -5,13 +5,9 @@
 </template>
 
 <script>
-import echarts from "echarts";
-import config from "./config.js";
 export default {
   mounted() {
-    var myChart = echarts.init(document.getElementById("map"));
-    let option = config.mapConfig();
-    myChart.setOption(option);
+    var map = new AMap.Map("map");
   }
 };
 </script>

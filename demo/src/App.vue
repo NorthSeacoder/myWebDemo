@@ -63,6 +63,7 @@ export default {
   height: 100%;
   width: 100%;
   /* line-height: 160px; */
+  /* padding: 0; */
 }
 
 body > .el-container {
