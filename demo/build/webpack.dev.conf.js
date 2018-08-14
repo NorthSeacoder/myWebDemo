@@ -12,9 +12,10 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 //用于更友好的输出webpack的警告,错误信息等
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+
 const portfinder = require('portfinder')
 
-const HOST = process.env.HOST
+const HOST = process.env.HOST //process.env属性返回一个包含用户环境信息的对象 See
 const PORT = process.env.PORT && Number(process.env.PORT)
 
 const devWebpackConfig = merge(baseWebpackConfig, {
@@ -57,9 +58,12 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new webpack.DefinePlugin({
       'process.env': require('../config/dev.env')
     }),
+    // HotModule 插件在页面进行变更的时候只会重绘对应的页面模块，不会重绘整个 html 文件
+    // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
     new webpack.NoEmitOnErrorsPlugin(),
+    // 将 index.html 作为入口，注入 html 代码后生成 index.html文件
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       filename: 'index.html',

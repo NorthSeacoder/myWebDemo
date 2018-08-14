@@ -3,7 +3,10 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
-
+/**
+ * 获得绝对路径
+ * @param {*} dir
+ */
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -16,30 +19,39 @@ module.exports = {
     app: './src/main.js',
   },
   output: {
+    // 编译输出的静态资源根路径
     path: config.build.assetsRoot,
-    filename: 'js/[name].js',
+    // 编译输出的文件名
+    filename: '[name].js',
+    // 正式发布环境下编译输出的上线路径的根路径
     publicPath: process.env.NODE_ENV === 'production' ?
       config.build.assetsPublicPath : config.dev.assetsPublicPath
   },
   resolve: {
+    // 自动补全的扩展名
     extensions: ['.js', '.vue', '.json'],
+    // 路径别名
     alias: {
+      // 例如 import Vue from 'vue'，会自动到 'vue/dist/vue.esm.js'中寻找
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
     }
   },
   module: {
     rules: [{
+        //处理vue文件
         test: /\.vue$/,
         loader: 'vue-loader',
         options: vueLoaderConfig
       },
       {
+        //编译js文件
         test: /\.js$/,
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       },
       {
+        // 处理图片文件
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
