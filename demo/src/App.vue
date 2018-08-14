@@ -12,6 +12,9 @@
         <el-menu-item index="ele">
           ele
         </el-menu-item>
+        <el-menu-item index="echarts">
+          echarts
+        </el-menu-item>
       </el-menu>
     </el-aside>
     <el-container>

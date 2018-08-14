@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import map from '@/components/map';
 import eleDemo from '@/components/eleDemo';
+import chartsDemo from '@/components/echartsobj';
 Vue.use(Router)
 
 export default new Router({
@@ -18,5 +19,9 @@ export default new Router({
     path: '/ele',
     name: 'eleDemo',
     component: eleDemo
+  }, {
+    path: '/echarts',
+    name: 'echarts',
+    component: chartsDemo
   }]
 })
