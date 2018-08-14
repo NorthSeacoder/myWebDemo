@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
-import eleDemo from '@/components/eleDemo';
 import map from '@/components/map';
+import eleDemo from '@/components/eleDemo';
 Vue.use(Router)
 
 export default new Router({
@@ -11,12 +11,12 @@ export default new Router({
     name: 'HelloWorld',
     component: HelloWorld
   }, {
-    path: '/ele',
-    name: 'eleDemo',
-    component: eleDemo
-  }, {
     path: '/map',
     name: 'map',
     component: map
+  }, {
+    path: '/ele',
+    name: 'eleDemo',
+    component: eleDemo
   }]
 })

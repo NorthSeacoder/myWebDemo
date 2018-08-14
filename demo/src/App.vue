@@ -2,21 +2,16 @@
 
   <el-container style="height:100%;">
     <el-aside width="200px">
-
       <el-menu default-active="entry" background-color="#d3dce6" @select="select" :router='true'>
         <el-menu-item index="entry">
-          <!-- <i class="el-icon-menu"></i> -->
           ent
         </el-menu-item>
         <el-menu-item index="map">
-          <!-- <i class="el-icon-menu"></i> -->
           map
         </el-menu-item>
         <el-menu-item index="ele">
-          <!-- <i class="el-icon-menu"></i> -->
           ele
         </el-menu-item>
-
       </el-menu>
     </el-aside>
     <el-container>
@@ -36,6 +31,9 @@ export default {
     select(i) {
       console.log(i);
     }
+  },
+  mounted() {
+    this.$router.push({ path: "entry" });
   }
 };
 </script>
@@ -63,7 +61,7 @@ export default {
   height: 100%;
   width: 100%;
   /* line-height: 160px; */
-  /* padding: 0; */
+  padding: 0;
 }
 
 body > .el-container {

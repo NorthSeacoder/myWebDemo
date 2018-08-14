@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class='elemain'>
     <el-button @click="show = !show">Click Me</el-button>
 
     <div style="display: flex; margin-top: 20px; height: 100px;">
@@ -33,5 +33,8 @@ export default {
   padding: 40px 20px;
   box-sizing: border-box;
   margin-right: 20px;
+}
+.elemain {
+  margin: 20px;
 }
 </style>
