@@ -2,10 +2,13 @@
 require('./check-versions')()
 
 process.env.NODE_ENV = 'production'
-
+//主要用来实现node.js命令行环境的loading效果，和显示各种状态的图标等
 const ora = require('ora')
+//以包的形式包装rm -rf命令，用来删除文件和文件夹的，不管文件夹是否为空，都可删除
 const rm = require('rimraf')
+//path 模块提供了一些用于处理文件路径的小工具，我们可以通过以下方式引入该模块
 const path = require('path')
+//修改控制台中字符串的样式（字体样式加粗等／字体颜色／背景颜色）
 const chalk = require('chalk')
 const webpack = require('webpack')
 const config = require('../config')

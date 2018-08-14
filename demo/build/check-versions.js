@@ -1,20 +1,26 @@
+/*
+ * @Author: mengpeng@fang.com
+ * @Date: 2018-08-14 10:44:20
+ * @LastEditors: mengpeng@fang.com
+ * @LastEditTime: 2018-08-14 10:44:54
+ * @Description: When I wrote this, only God and I understood what I was doing,Now, God only knows
+ * 检测npm和node版本
+ */
 'use strict'
 const chalk = require('chalk')
 const semver = require('semver')
 const packageConfig = require('../package.json')
 const shell = require('shelljs')
 
-function exec (cmd) {
+function exec(cmd) {
   return require('child_process').execSync(cmd).toString().trim()
 }
 
-const versionRequirements = [
-  {
-    name: 'node',
-    currentVersion: semver.clean(process.version),
-    versionRequirement: packageConfig.engines.node
-  }
-]
+const versionRequirements = [{
+  name: 'node',
+  currentVersion: semver.clean(process.version),
+  versionRequirement: packageConfig.engines.node
+}]
 
 if (shell.which('npm')) {
   versionRequirements.push({
