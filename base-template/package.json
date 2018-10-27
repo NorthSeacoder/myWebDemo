@@ -9,10 +9,11 @@
     "build:server": "cross-env WEBPACK_TARGET=node vue-cli-service build",
     "build:win": "npm run build:server && move dist\\vue-ssr-server-bundle.json bundle && npm run build:client && move bundle dist\\vue-ssr-server-bundle.json",
     "lint": "vue-cli-service lint",
-    "start":"npm run build:win &&node server/server"
+    "start": "npm run build:win &&node server/server"
   },
   "dependencies": {
     "koa": "^2.6.1",
+    "koa-router": "^7.4.0",
     "koa-static": "^5.0.0",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
